@@ -1,0 +1,16 @@
+{
+  "name": "bloke/smd_article_sequence",
+  "description": "A Textpattern CMS plugin for keeping track of how many times an article is saved.",
+  "keywords": ["textpattern", "plugin", "article", "counter", "increment", "save"],
+  "homepage": "https://github.com/bloke/smd_article_sequence",
+  "license": "GPL-2.0",
+  "type": "textpattern-plugin",
+  "support": {
+    "issues": "https://github.com/bloke/smd_article_sequence/issues",
+    "source": "https://github.com/bloke/smd_article_sequence"
+  },
+  "require": {
+    "textpattern/lock": ">=4.7.0",
+    "textpattern/installer": "*"
+  }
+}

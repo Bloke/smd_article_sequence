@@ -1,0 +1,11 @@
+{
+  "name": "smd_article_sequence",
+  "description": "A Textpattern CMS plugin for keeping track of how many times an article is saved",
+  "version": "0.2.0",
+  "type": 4,
+  "author": "Stef Dawson",
+  "author_uri": "https://stefdawson.com/",
+  "order": 5,
+  "flags": 0,
+  "help": {"file" : ["./README.textile"]}
+}

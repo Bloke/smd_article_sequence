@@ -1,0 +1,9 @@
+h1. Changelog
+
+h2. 0.2.0 - 2019-10-07
+
+* Only increment counter if article is published.
+
+h2. 0.1.0 - 2019-10-06
+
+* Initial version
