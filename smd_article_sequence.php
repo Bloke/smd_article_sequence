@@ -17,10 +17,10 @@ $plugin['name'] = 'smd_article_sequence';
 // 1 = Plugin help is in raw HTML.  Not recommended.
 # $plugin['allow_html_help'] = 1;
 
-$plugin['version'] = '0.1.0';
+$plugin['version'] = '0.2.0';
 $plugin['author'] = 'Stef Dawson';
 $plugin['author_uri'] = 'https://stefdawson.com/';
-$plugin['description'] = 'Keep track of how many times an article is saved.';
+$plugin['description'] = 'Keep track of how many times an article is saved. Requires rvm_counter plugin.';
 
 // Plugin load order:
 // The default value of 5 would fit most plugins, while for instance comment
@@ -68,11 +68,11 @@ if (txpinterface === 'admin') {
 }
 
 /**
- * [smd_article_sequence description]
- * @param  [type] $evt  [description]
- * @param  [type] $stp  [description]
- * @param  [type] $data [description]
- * @return [type]       [description]
+ * Increment the article counter.
+ *
+ * @param  string $evt  Textpattern event
+ * @param  string $stp  Textpattern step
+ * @param  array  $data Article metadata
  */
 function smd_article_sequence($evt, $stp, $data)
 {
@@ -82,7 +82,11 @@ function smd_article_sequence($evt, $stp, $data)
         load_plugin('rvm_counter');
     }
 
-    rvm_counter(array('name' => 'article-'.$data['ID']));
+    if (in_array('rvm_counter', $plugins)) {
+        if ($data['Status'] >= 4) {
+            rvm_counter(array('name' => 'article-'.$data['ID']));
+        }
+    }
 }
 
 # --- END PLUGIN CODE ---
@@ -90,7 +94,28 @@ if (0) {
 ?>
 <!--
 # --- BEGIN PLUGIN HELP ---
+h1. smd_article_sequence
 
+Keeps track of how many times an article is saved.
+
+h2. Installation / Uninstallation
+
+# "Download this plugin":#, paste the code into the Textpattern _Admin->Plugins_ panel, install and enable the plugin. For bug reports, please "raise an issue":#.
+# Install and enable the "rvm_counter":https://vanmelick.com/txp/rvm_counter.php?gzip plugin in a similar manner.
+
+To uninstall, delete the plugin from the _Admin->Plugins_ panel.
+
+h2. Usage
+
+Just create/edit articles as normal from the Write panel. The plugin keeps track of the number of times each _published_ article is saved behind the scenes, courtesy of the rvm_counter plugin.
+
+h2. Displaying the counter
+
+Add this tag to your Form that displays article content to show the current counter value:
+
+bc. <txp:rvm_counter name='article-<txp:article_id />' step="0" />
+
+Bear in mind that this will display '0' if the article has yet to be saved (i.e. if this tag is run on existing articles that were saved/created before the plugin was installed). You may require some defensive coding to check the value returned from rvm_counter is non-zero, perhaps using the @<txp:evaluate>@ tag first.
 
 # --- END PLUGIN HELP ---
 -->
