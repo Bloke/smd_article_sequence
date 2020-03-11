@@ -5,7 +5,7 @@ Keeps track of how many times an article is saved.
 h2. Installation / Uninstallation
 
 # "Download this plugin":https://github.com/Bloke/smd_article_sequence/releases, paste the code into the Textpattern _Admin->Plugins_ panel, install and enable the plugin. For bug reports, please "raise an issue":https://github.com/Bloke/smd_article_sequence/issues.
-# Install and enable the "rvm_counter":https://vanmelick.com/txp/rvm_counter.php?gzip plugin in a similar manner.
+# Install and enable the "@rvm_counter@":https://vanmelick.com/txp/rvm_counter.php?gzip plugin in a similar manner.
 
 To uninstall, delete the plugin from the _Admin->Plugins_ panel.
 
