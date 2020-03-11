@@ -4,14 +4,14 @@ Keeps track of how many times an article is saved.
 
 h2. Installation / Uninstallation
 
-# "Download this plugin":#, paste the code into the Textpattern _Admin->Plugins_ panel, install and enable the plugin. For bug reports, please "raise an issue":#.
+# "Download this plugin":https://github.com/Bloke/smd_article_sequence/releases, paste the code into the Textpattern _Admin->Plugins_ panel, install and enable the plugin. For bug reports, please "raise an issue":https://github.com/Bloke/smd_article_sequence/issues.
 # Install and enable the "rvm_counter":https://vanmelick.com/txp/rvm_counter.php?gzip plugin in a similar manner.
 
 To uninstall, delete the plugin from the _Admin->Plugins_ panel.
 
 h2. Usage
 
-Just create/edit articles as normal from the Write panel. The plugin keeps track of the number of times each _published_ article is saved behind the scenes, courtesy of the rvm_counter plugin.
+Just create/edit articles as normal from the Write panel. The plugin keeps track of the number of times each _published_ article is saved behind the scenes, courtesy of the @rvm_counter@ plugin.
 
 h2. Displaying the counter
 
@@ -19,4 +19,4 @@ Add this tag to your Form that displays article content to show the current coun
 
 bc. <txp:rvm_counter name='article-<txp:article_id />' step="0" />
 
-Bear in mind that this will display '0' if the article has yet to be saved (i.e. if this tag is run on existing articles that were saved/created before the plugin was installed). You may require some defensive coding to check the value returned from rvm_counter is non-zero, perhaps using the @<txp:evaluate>@ tag first.
+Bear in mind that this will display '0' if the article has yet to be saved (i.e. if this tag is run on existing articles that were saved/created before the plugin was installed). You may require some defensive coding to check the value returned from @rvm_counter@ is non-zero, perhaps using the @<txp:evaluate>@ tag first.
